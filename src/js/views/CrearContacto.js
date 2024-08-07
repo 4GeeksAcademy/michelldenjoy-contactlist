@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function CrearContacto() {
   const [name, setName] = useState("")
@@ -6,18 +7,40 @@ function CrearContacto() {
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
 
-  {/**const [formData, setFormData] = useState({
-    name: { name },
-    email: { email },
-    phone: { phone },
-    address: { address }
-  })
-   */}
+  const createContact = (name, phone, email, address) => {
+    fetch('https://playground.4geeks.com/contact/agendas/michell/contacts', {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        email: email,
+        address: address
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => {
+
+        return resp.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+const handleSubmit =(e) => {
+  e.preventDefault()
+  createContact(name, phone, email, address)
+}
+
   return (
     < >
       <h1 className='text-center'>Add a new contact</h1>
       <div>
-        <form className='m-5'  onSubmit={handleSubmit}> 
+        <form className='m-5' onSubmit={handleSubmit}  >
 
           <div className="mb-3">
             <label className="form-label">Full Name</label>
@@ -35,7 +58,14 @@ function CrearContacto() {
             <label className="form-label">Adress</label>
             <input type="text" className="form-control" id="InputAddress" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
-          <button type="submit" className="btn btn-primary">Save</button>
+
+          <button type="submit" className="btn btn-primary w-100">Save</button>
+
+
+
+          <Link to="/Contactos">
+            <span >or get back to contacts</span>
+          </Link>
 
         </form>
       </div>
