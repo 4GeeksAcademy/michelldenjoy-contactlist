@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
-function CrearContacto() {
+function Update() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
 
   const navigate = useNavigate()
+  const { id } = useParams()
 
-  const createContact = (name, phone, email, address) => {
-    fetch('https://playground.4geeks.com/contact/agendas/michell/contacts', {
-      method: "POST",
+
+  const update = (name, phone, email, address) => {
+    fetch(`https://playground.4geeks.com/contact/agendas/michell/contacts/${id}`, {
+      method: "PUT",
       body: JSON.stringify({
         name: name,
         phone: phone,
@@ -32,17 +34,19 @@ function CrearContacto() {
         console.log(error);
       });
   }
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault()
-    createContact(name, phone, email, address)
-    navigate("/")
+    update(name, phone, email, address)
+    navigate(`/EditContact/${id}`)
   }
+
+  //tengo qc crear usseffect que traiga los datos del contact por id
 
   return (
     < >
-      <h2 className='text-center'>Add a new contact</h2>
+      <h2 className='text-center'>Edit contact</h2>
       <div>
-        <form className='m-5' onSubmit={handleSubmit}  >
+        <form className='m-5' onSubmit={handleUpdate}  >
 
           <div className="mb-3">
             <label className="form-label">Full Name</label>
@@ -75,4 +79,4 @@ function CrearContacto() {
   )
 }
 
-export default CrearContacto;
+export default Update;

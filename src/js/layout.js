@@ -4,8 +4,8 @@ import { Home } from "./views/home";
 import ScrollToTop from "./component/scrollToTop";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import Contactos from "./views/Contactos";
 import CrearContacto from "./views/CrearContacto";
+import EditContact from "./views/EditContact"
 
 //create your first component
 const Layout = () => {
@@ -17,8 +17,8 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/Contactos" element={<Contactos />} />
 						<Route path="/CrearContacto" element={<CrearContacto />} />
+						<Route path="/EditContact/:id" element={<EditContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
