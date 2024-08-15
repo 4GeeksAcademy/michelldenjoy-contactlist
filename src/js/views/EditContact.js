@@ -40,7 +40,7 @@ function Update() {
   const handleUpdate = (e) => {
     e.preventDefault()
     update(name, phone, email, address)
-    navigate(`/EditContact/${id}`)
+    navigate("/")
   }
 
 
@@ -56,7 +56,7 @@ function Update() {
           </div>
           <div className="mb-3">
             <label className="form-label">Email</label>
-            <input type="email" className="form-control" id="InputEmail" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" className="form-control" id="InputEmail" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="mb-3">
             <label className="form-label">Phone</label>
