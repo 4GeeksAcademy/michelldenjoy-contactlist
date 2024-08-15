@@ -3,6 +3,8 @@ import "../../styles/home.css";
 import Card from "../component/Card";
 
 
+//LO SIENTO POR MI SPANGLISH EN ALGUNAS VARIABLES//
+
 export const Home = () => {
 
 	const [contacts, setContacts] = useState([])
@@ -26,6 +28,7 @@ export const Home = () => {
 			.catch(error => console.log(error))
 	};
 
+	
 	const handleDeleteContact = (id) => {
 		fetch(`https://playground.4geeks.com/contact/agendas/michell/contacts/${id}`, {
 			method: "DELETE"
@@ -46,10 +49,15 @@ export const Home = () => {
 
 	return (
 
-		<div>
-			{contacts.map((contact) => (<Card key={contact.id} name={contact.name} phone={contact.phone} address={contact.address} email={contact.email} id={contact.id} onDelete={handleDeleteContact} />))}
+		<>
+			<h2 className="text-center">Contact List</h2>
 
-		</div>
+			<div className="m-5">
+				{contacts.map((contact) => (<Card key={contact.id} name={contact.name} phone={contact.phone} address={contact.address} email={contact.email} id={contact.id} onDelete={handleDeleteContact} />))}
+			</div>
+
+		</>
+
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState, } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
+
 function Update() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -40,7 +41,6 @@ function Update() {
     navigate(`/EditContact/${id}`)
   }
 
-  //tengo qc crear usseffect que traiga los datos del contact por id
 
   return (
     < >
