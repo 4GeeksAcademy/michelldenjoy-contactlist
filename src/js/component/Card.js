@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router';
 
+function Card({ name, address, phone, email, id, onDelete }) {  // Recibe onDelete como prop
 
-function Card({ name, address, phone, email, id }) {
 
-  const navigate = useNavigate()
 
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    onDelete(id); // Llama a la función que viene de Home
+  }
 
   return (
     <div className="row align-items-center p-3 shadow border rounded w-50 m-3">
-
       <div className="col-sm-12 col-md-4 text-center mb-3 mb-md-0">
         <img
           src="https://placehold.co/400"
@@ -33,16 +36,15 @@ function Card({ name, address, phone, email, id }) {
 
       <div className="col-sm-12 col-md-4 text-center text-md-end">
         <button className="btn btn-primary me-2" onClick={() => {navigate(`/EditContact/${id}`)}}>
-          <i className="fa-solid fa-pen"></i>  Edit
+          <i className="fa-solid fa-pen"></i> Edit
         </button>
-        <button className="btn btn-danger">
+        <button className="btn btn-danger" onClick={handleDelete} >
           <i className="fa-regular fa-trash-can"></i> Delete
         </button>
       </div>
       
     </div>
-
-  )
+  );
 }
 
 export default Card;
