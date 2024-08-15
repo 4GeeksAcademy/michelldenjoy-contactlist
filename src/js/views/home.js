@@ -4,6 +4,7 @@ import Card from "../component/Card";
 
 
 //LO SIENTO POR MI SPANGLISH EN ALGUNAS VARIABLES//
+//LA PRIMERA VEZ QUE SE GUARDA UN CONTACTO HAY QUE ACTUALIZAR A LA PAGINA PORQUE A VECES NO SE MUESTRA CUANDO RENDERIZA ://
 
 export const Home = () => {
 
@@ -27,8 +28,8 @@ export const Home = () => {
 			.then(data => setContacts(data.contacts))
 			.catch(error => console.log(error))
 	};
-
 	
+	//Boton para eliminar contacto//
 	const handleDeleteContact = (id) => {
 		fetch(`https://playground.4geeks.com/contact/agendas/michell/contacts/${id}`, {
 			method: "DELETE"
@@ -40,7 +41,6 @@ export const Home = () => {
 			})
 			.catch(error => console.log(error));
 	};
-
 
 	useEffect(() => {
 		createAgenda()

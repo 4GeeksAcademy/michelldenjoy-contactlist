@@ -1,14 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
-function Card({ name, address, phone, email, id, onDelete }) {  // Recibe onDelete como prop
-
-
+function Card({ name, address, phone, email, id, onDelete }) {  //Recibe onDelete como prop//
 
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    onDelete(id); // Llama a la función que viene de Home
+    onDelete(id); //Llama a la función que viene de Home//
   }
 
   return (

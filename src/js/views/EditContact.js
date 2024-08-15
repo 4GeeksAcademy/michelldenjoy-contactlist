@@ -35,6 +35,8 @@ function Update() {
         console.log(error);
       });
   }
+  
+  //Boton de editar contacto//
   const handleUpdate = (e) => {
     e.preventDefault()
     update(name, phone, email, address)
@@ -66,8 +68,6 @@ function Update() {
           </div>
 
           <button type="submit" className="btn btn-primary w-100">Save</button>
-
-
 
           <Link to="/">
             <span >or get back to contacts</span>
