@@ -63,7 +63,7 @@ function Update() {
             <input type="text" className="form-control" id="InputPhone" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </div>
           <div className="mb-3">
-            <label className="form-label">Adress</label>
+            <label className="form-label">Address</label>
             <input type="text" className="form-control" id="InputAddress" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
 

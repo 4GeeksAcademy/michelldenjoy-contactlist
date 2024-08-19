@@ -33,14 +33,14 @@ function Card({ name, address, phone, email, id, onDelete }) {  //Recibe onDelet
       </div>
 
       <div className="col-sm-12 col-md-4 text-center text-md-end">
-        <button className="btn btn-primary me-2" onClick={() => {navigate(`/EditContact/${id}`)}}>
+        <button className="btn btn-primary me-2" onClick={() => { navigate(`/EditContact/${id}`) }}>
           <i className="fa-solid fa-pen"></i> Edit
         </button>
         <button className="btn btn-danger" onClick={handleDelete} >
           <i className="fa-regular fa-trash-can"></i> Delete
         </button>
       </div>
-      
+
     </div>
   );
 }
